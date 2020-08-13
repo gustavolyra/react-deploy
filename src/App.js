@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
 import Header from './components/header/Header';
-import Description from './components/information/Description';
-
+import Body from './components/body/Body';
 function App() {
   return (
-    <>
+    <div className="container">
       <Header />
-      <Description />
-    </>
+      <Body />
+    </div>
   );
 }
 
