@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Description from './information/Description';
 
 export default class Body extends Component {
@@ -44,6 +44,6 @@ export default class Body extends Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
