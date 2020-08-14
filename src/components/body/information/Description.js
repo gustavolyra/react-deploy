@@ -2,19 +2,17 @@ import React from 'react';
 import css from './info.module.css';
 
 export default function Description(props) {
+  const { id, name, lastJoke, record, avatar } = props;
   const handleClick = (event) => {
-    props.onReset(event, props.id);
+    props.onReset(event, id);
   };
   return (
     <div className={css.description}>
-      <h4>{props.name}</h4>
-      <img
-        src="https://avatars3.githubusercontent.com/u/32414544?s=460&u=d5d92eb269676f9fa4fe4d9aa247662a6faa5b92&v=4"
-        alt="nome"
-      />
+      <h4>{name}</h4>
+      <img src={avatar} alt="nome" />
       <p>
-        Estamos há {props.lastJoke} dias sem piadas ruim. Nosso recorde é de{' '}
-        {props.record} dias.
+        Estamos há {lastJoke} dias sem piadas ruim. Nosso recorde é de{''}
+        {record} dias.
       </p>
       <button
         className="waves-effect waves-light btn-large"
