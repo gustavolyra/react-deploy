@@ -9,6 +9,7 @@ export default class Body extends Component {
     return (
       <div>
         <div className="row">
+          {this.props.users}
           <div className="col xl3 l4 m6 s12">
             <Description
               name={name}
