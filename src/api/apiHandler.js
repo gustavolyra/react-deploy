@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 async function getApi() {
-  const res = await axios.get('http://localhost:3001/ecosolys');
+  const res = await axios.get('http://localhost:5000/ecosolys');
   const json = res.data;
   return json;
 }
 async function updateApi(id) {
-  const res = await axios.put(`http://localhost:3001/ecosolys/${id}`, {
+  const res = await axios.put(`http://localhost:5000/ecosolys/${id}`, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
