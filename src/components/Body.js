@@ -1,19 +1,10 @@
 import React from 'react';
-import Description from './information/Description';
-const axios = require('axios').default;
+import Description from './Description';
 
-export default function Body({ users, handleReset }) {
-  const handleClick = async (event, id) => {
+export default function Body({ users, resetJoker }) {
+  const handleClick = (event, id) => {
     console.log(id);
-    const response = await axios.post(
-      'http://localhost:3001/ecosolys/resetJoker/' + id,
-      {
-        firstName: 'Fred',
-        lastName: 'Flintstone',
-      }
-    );
-    console.log(response);
-    //handleReset(id);
+    resetJoker(id);
   };
 
   return (

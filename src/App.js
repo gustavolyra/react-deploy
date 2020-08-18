@@ -1,54 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/header/Header';
-import Body from './components/body/Body';
-const axios = require('axios').default;
+import Header from './components/Header';
+import Body from './components/Body';
+import * as api from './api/apiHandler';
 
-export default class App extends Component {
-  constructor() {
-    super();
+export default function App() {
+  const [allJokers, setAllJokers] = useState([]);
 
-    this.state = {
-      allJokers: [],
+  useEffect(() => {
+    const getData = async () => {
+      const json = await api.getApi();
+      setAllJokers(json);
     };
-  }
+    getData();
+  }, []);
 
-  //get with header
-  //   async getDataAxios(){
-  //     const response =
-  //       await axios.get("https://dog.ceo/api/breeds/list/all",
-  //         { headers: {'Content-Type': 'application/json'}}
-  //       )
-  //     console.log(response.data)
-  // }
-
-  // const response = await axios.post(
-  //   'https://example.com',
-  //   { example: 'data' },
-  //   { headers: { 'Content-Type': 'application/json' } }
-  // )
-  // console.log(response.data)
-
-  async componentDidMount() {
-    const res = await axios.get('http://localhost:3001/ecosolys');
-    const json = res.data;
-    console.log(json);
-    this.setState({
-      allJokers: json,
-    });
-  }
-
-  handleReset = (id) => {
-    console.log('RESET');
+  const handleResetJoker = (id) => {
     console.log(id);
+    console.log('RESET');
+    api.updateApi(id);
   };
 
-  render() {
-    return (
-      <div className="container">
-        <Header />
-        <Body users={this.state.allJokers} />
-      </div>
-    );
-  }
+  return (
+    <div className="container">
+      <Header />
+      <Body users={allJokers} resetJoker={handleResetJoker} />
+    </div>
+  );
 }

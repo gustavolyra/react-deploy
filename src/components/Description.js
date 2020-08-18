@@ -2,9 +2,10 @@ import React from 'react';
 import css from './info.module.css';
 
 export default function Description(props) {
-  const { id, name, lastJoke, record, avatar } = props;
+  const { id, name, lastJoke, record, avatar, onReset } = props;
   const handleClick = (event) => {
-    props.onReset(event, id);
+    console.log(id);
+    onReset(event, id);
   };
   return (
     <div className={css.description}>
