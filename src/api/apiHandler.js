@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://badjokes-server.herokuapp.com/';
-// const API_URL = 'http://localhost:3001/ecosolys/';
+//const API_URL = 'http://localhost:3001/ecosolys/';
 
 async function getApi() {
   const res = await axios.get(API_URL);
