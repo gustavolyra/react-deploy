@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
 import * as api from './api/apiHandler';
+import Spinner from './components/Spinner';
 
 export default function App() {
   const [allJokers, setAllJokers] = useState([]);
@@ -10,8 +11,11 @@ export default function App() {
   useEffect(() => {
     const getData = async () => {
       const json = await api.getApi();
-      setAllJokers(json);
+      setTimeout(() => {
+        setAllJokers(json);
+      }, 2000);
     };
+
     getData();
   }, []);
 
@@ -24,7 +28,10 @@ export default function App() {
   return (
     <div className="container">
       <Header />
-      <Body users={allJokers} resetJoker={handleResetJoker} />
+      {allJokers.length === 0 && <Spinner />}
+      {allJokers.length > 0 && (
+        <Body users={allJokers} resetJoker={handleResetJoker} />
+      )}
     </div>
   );
 }

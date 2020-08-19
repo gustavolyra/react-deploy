@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://badjokes-server.herokuapp.com/';
+const API_URL = 'http://badjokes-server.herokuapp.com/ecosolys/';
 //const API_URL = 'http://localhost:3001/ecosolys/';
 
 async function getApi() {
